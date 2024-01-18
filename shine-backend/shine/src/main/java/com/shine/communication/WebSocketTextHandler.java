@@ -30,24 +30,27 @@ public class WebSocketTextHandler extends TextWebSocketHandler {
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		
-		String profil_id = extractProfileId(session);
+		String profile_id = extractProfileId(session);
 		String chat_id = extractChatId(session);
 		
-		
-		
 		chat_profile_sessions.computeIfAbsent(chat_id, k-> new HashMap<>());
-		chat_profile_sessions.get(chat_id).put(profil_id, session);
-		System.out.println(chat_profile_sessions);
+		chat_profile_sessions.get(chat_id).put(profile_id, session);
+
 	}
+	
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		System.out.println(message);
+		
+		
+		
+		
 	}
 	
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		System.out.println(session);
+		String profile_id = extractProfileId(session);
+		String chat_id = extractChatId(session);
+		chat_profile_sessions.get(chat_id).remove(profile_id);
 	}
 	
 	private String extractChatId(WebSocketSession session) {
