@@ -17,6 +17,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -39,10 +40,12 @@ public class Profile {
 
     @OneToMany(mappedBy = "sender")
     @JsonIgnore
+    @ToString.Exclude
     private List<Message> sent_messages = new ArrayList<>();
 
     @OneToMany(mappedBy = "receiver")
     @JsonIgnore
+    @ToString.Exclude
     private List<Message> received_messages = new ArrayList<>();
 
     @ManyToMany
@@ -52,10 +55,12 @@ public class Profile {
             inverseJoinColumns = @JoinColumn(name = "chat_id")
     )
     @JsonIgnore
+    @ToString.Exclude
     private List<Chat> chats = new ArrayList<>();
     
     @OneToMany(mappedBy = "chat_created_by")
     @JsonIgnore
+    @ToString.Exclude
     private List<Chat> chats_created = new ArrayList<>();
 
 	public Profile(String name, String username, String email, String password) {
