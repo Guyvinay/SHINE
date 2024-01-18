@@ -3,6 +3,8 @@ package com.shine.modal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,9 +15,11 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "profiles")
@@ -34,9 +38,11 @@ public class Profile {
     private String password;
 
     @OneToMany(mappedBy = "sender")
+    @JsonIgnore
     private List<Message> sent_messages = new ArrayList<>();
 
     @OneToMany(mappedBy = "receiver")
+    @JsonIgnore
     private List<Message> received_messages = new ArrayList<>();
 
     @ManyToMany
@@ -45,6 +51,21 @@ public class Profile {
             joinColumns = @JoinColumn(name = "profile_id"),
             inverseJoinColumns = @JoinColumn(name = "chat_id")
     )
+    @JsonIgnore
     private List<Chat> chats = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "chat_created_by")
+    @JsonIgnore
+    private List<Chat> chats_created = new ArrayList<>();
 
+	public Profile(String name, String username, String email, String password) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
+
+    
+    
 }

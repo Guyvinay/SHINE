@@ -6,7 +6,7 @@ import com.shine.modal.Chat;
 
 public interface ChatService {
 
-    public Chat createChat(Chat chat);
+    public Chat createChat(String profile_id, Chat chat);
 
     public Chat getChatById(String chat_id);
 
