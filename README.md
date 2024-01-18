@@ -1,2 +1,1 @@
-# SHINE
-Social Hub for Interaction, Networking, and Expression
+# SHINE : Social Hub for Interaction, Networking, and Expression
