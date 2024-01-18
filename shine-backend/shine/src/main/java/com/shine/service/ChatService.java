@@ -1,10 +1,8 @@
 package com.shine.service;
 
-import com.shine.modal.Chat;
-import com.shine.modal.Chat;
-import com.shine.repository.ChatRepository;
-
 import java.util.List;
+
+import com.shine.modal.Chat;
 
 public interface ChatService {
 

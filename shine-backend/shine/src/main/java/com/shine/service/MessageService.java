@@ -1,8 +1,8 @@
 package com.shine.service;
 
-import com.shine.modal.Message;
-
 import java.util.List;
+
+import com.shine.modal.Message;
 
 public interface MessageService {
 

@@ -1,11 +1,11 @@
 package com.shine.serviceImpl;
 
-import com.shine.modal.Chat;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.shine.modal.Chat;
 import com.shine.service.ChatService;
-
-import java.util.List;
 
 @Service
 public class ChatServiceImpl implements ChatService {

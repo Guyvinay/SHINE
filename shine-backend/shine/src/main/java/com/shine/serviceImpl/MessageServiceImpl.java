@@ -1,11 +1,11 @@
 package com.shine.serviceImpl;
 
-import com.shine.modal.Message;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.shine.modal.Message;
 import com.shine.service.MessageService;
-
-import java.util.List;
 
 @Service
 public class MessageServiceImpl implements MessageService {

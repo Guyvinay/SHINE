@@ -1,8 +1,8 @@
 package com.shine.service;
 
-import com.shine.modal.Profile;
-
 import java.util.List;
+
+import com.shine.modal.Profile;
 
 public interface ProfileService {
 

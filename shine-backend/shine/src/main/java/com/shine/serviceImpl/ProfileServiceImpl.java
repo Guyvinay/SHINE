@@ -1,11 +1,11 @@
 package com.shine.serviceImpl;
 
-import com.shine.modal.Profile;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.shine.modal.Profile;
 import com.shine.service.ProfileService;
-
-import java.util.List;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
