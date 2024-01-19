@@ -21,17 +21,12 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
 	
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+		
 		registry.addHandler(
-				new WebSocketTextHandler(
-						chatRepository, profileRepository
-						), "/chat/{chat_id}/{user_id}")
+				new WebSocketTextHandler(chatRepository, profileRepository), 
+				             "/chat/{chat_id}/{user_id}")
 		        .addInterceptors(new SocketHandshakeInterceptor(
-		        		chatRepository, profileRepository
-		        		))
+		        		      chatRepository, profileRepository))
 		        .setAllowedOrigins("*");
-		        
 	}
-
-	
-	
 }
