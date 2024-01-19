@@ -88,7 +88,6 @@ public class WebSocketTextHandler extends TextWebSocketHandler {
 		
 		if(profile_sessions!=null) {
 			for(Map.Entry<String, WebSocketSession> profile_session: profile_sessions.entrySet() ) {
-//				System.out.println(profile_session);
 				if( 
 						profile_session.getValue().isOpen() && 
 						!session.getId().equals(profile_session.getValue().getId()) ) {
