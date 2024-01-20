@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WebSocketTextHandler extends TextWebSocketHandler {
-
+	
 	private ChatRepository chatRepository;
 	
 	private ProfileRepository profileRepository;
@@ -72,11 +72,8 @@ public class WebSocketTextHandler extends TextWebSocketHandler {
 		
 		object_node.put("send_by", profile.getName());
 		
-		
 		String final_message = object_mapper.writeValueAsString(object_node);
-		
-//		System.out.println(final_message);
-		
+				
 		broadcastMessageToReciever(chat_id, profile_id ,final_message, session);
 	}
 	
@@ -84,7 +81,6 @@ public class WebSocketTextHandler extends TextWebSocketHandler {
 			WebSocketSession session) {
 
 		Map<String, WebSocketSession> profile_sessions = chat_profile_sessions.get(chat_id);
-//		System.out.println(profile_sessions);
 		
 		if(profile_sessions!=null) {
 			for(Map.Entry<String, WebSocketSession> profile_session: profile_sessions.entrySet() ) {
@@ -120,7 +116,7 @@ public class WebSocketTextHandler extends TextWebSocketHandler {
 		}
 		return userId;
 	}
-
+	
 	private String extractProfileId(WebSocketSession session) {
 		String uri = session.getUri().toString();
 		Pattern pattern = Pattern.compile("/chat/(.*?)/(.*?)$");
